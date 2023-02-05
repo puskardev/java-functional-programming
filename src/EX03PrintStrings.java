@@ -7,6 +7,7 @@ public class EX03PrintStrings {
         printCourses(courses);
         printScienceCourses(courses);
         printCoursesWith7letters(courses);
+        mapCoursesWithLength(courses);
     }
     private static void printCourses(List<String> courses) {
         System.out.println("All courses:");
@@ -25,6 +26,13 @@ public class EX03PrintStrings {
         System.out.println("7 letter courses:");
         courses.stream()
                 .filter(course -> course.length() == 7)
+                .forEach(System.out::println);
+    }
+
+    private static void mapCoursesWithLength(List<String> courses) {
+        System.out.println("Mapping courses with their length");
+        courses.stream()
+                .map(course -> course + " " + course.length())
                 .forEach(System.out::println);
     }
 }
